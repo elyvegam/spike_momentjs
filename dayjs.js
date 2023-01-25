@@ -1,6 +1,5 @@
 import dayjs from 'dayjs';
 import updateLocale from 'dayjs/plugin/updateLocale.js';
-import localizedFormat from 'dayjs/plugin/localizedFormat.js';
 import 'dayjs/locale/es-mx.js';
 
 dayjs.locale('es-mx');
@@ -34,7 +33,7 @@ const formatDate = (date, format) => {
 
     switch (format) {
       case 'day_month_year':
-        formatedDate = dayjs(date).format('DD [de] MMMM YYYY');
+        formatedDate = dayjs(date).format('DD [de] MMMM [de] YYYY');
         return formatedDate;
       case 'weekday_date':
         formatedDate = dayjs(date).format('dddd DD');
@@ -43,7 +42,7 @@ const formatDate = (date, format) => {
         const useSingularOrPlural =
           dayjs(date).format('hh') === '01' ? 'la' : 'las';
         formatedDate = dayjs(date).format(
-          `DD [de] MMMM YYYY [a ${useSingularOrPlural}] hh:mm A`
+          `DD [de] MMMM [de] YYYY [a ${useSingularOrPlural}] hh:mm A`
         );
         return formatedDate;
       default:
